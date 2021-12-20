@@ -4,8 +4,7 @@ class Student:
         self.index_id = index_id
         self.surname = surname
     def describe_stud(self):
-        print("Student {} {} ma nr indeksu {}".format(self.name, self.surname, self.index_id))
-
+        print(f"Student {self.name} {self.surname} ma nr indeksu {self.index_id}")
 def main():
     student = Student("Marcin", "Kowalski" , 124)
     student.describe_stud()
