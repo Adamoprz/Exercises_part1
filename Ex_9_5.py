@@ -1,7 +1,7 @@
 class Manager:
-    def __init__(self):
+    def __init__(self) -> None:
         self.orders = {}
-    def add_order(self, order_ob_, number_):
+    def add_order(self, order_ob_:str, number_:int) -> None:
         if order_ob_ in self.orders.keys():
             self.orders[order_ob_] = self.orders[order_ob_] + number_
         else:
@@ -9,17 +9,17 @@ class Manager:
             self.number_ = number_
             self.orders[self.order_ob_] = self.number_
 
-    def sell(self, id_to_sell):
+    def sell(self, id_to_sell: str) -> None:
         for order in self.orders:
             if order == id_to_sell:
                 self.orders[order] -= 1
 
 
-    def show_manager(self):
+    def show_manager(self) -> str:
         print(self.orders)
 
 class Order:
-    def __init__(self, id, name, price):
+    def __init__(self, id: int, name: str, price: float) -> None:
         self.id = id
         self.name = name
         self.price = price
