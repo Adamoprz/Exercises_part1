@@ -13,6 +13,7 @@ class Deck:
         self.card_ = []
         self.figures = figures
         self.values = values
+        self.create_Deck()
 
     def create_Deck(self) -> None:
         for value in self.values:
@@ -36,7 +37,7 @@ def main():
     values = ["A", "2", "3", "4", "5", "6", "7", "8", "10", "J" , "Q" , "K"]
     #Generate and create new deck
     deck_f = Deck(figures, values)
-    deck_f.create_Deck()
+    #deck_f.create_Deck()
     #print all cards of the deck
     print(deck_f.card_)
     #shuffle deck
