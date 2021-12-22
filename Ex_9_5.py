@@ -22,11 +22,11 @@ class Manager:
         print(self.orders)
 
 class Order:
-    def __init__(self, id_name_price) -> None:
+    def __init__(self, id_name_price:list) -> None:
         self.id = id_name_price[0]
         self.name = id_name_price[1]
         self.price = id_name_price[2]
-    def return_order(self):
+    def return_order(self) -> list:
         return (self.id, self.name, self.price)
 
 def main():
