@@ -14,18 +14,17 @@ class Notebook:
         self.list_of_notes = []
     def add_note(self, author:str, text:str) -> None:
         new_note = Note(author, text)
-        self.list_of_notes.append(new_note.return_note())
+        self.list_of_notes.append(new_note)
     def add_exist_note(self, n1) -> None:
-        temp_note = n1.return_note()
+        temp_note = n1
         self.list_of_notes.append(temp_note)
     def count_notes(self) -> None:
         print(len(self.list_of_notes))
     def show_notes(self) -> None:
         print("Masz takie notatki: ")
         count = 0
-        for note in self.list_of_notes:
-            count += 1
-            print(f'{count}.  {note[0]}: "{note[1]}" o godzinie {note[2].hour}:{note[2].minute:02d}')
+        for count, note in enumerate(self.list_of_notes):
+            print(f'{count}.  {note.return_note()[0]}: "{note.return_note()[1]}" o godzinie {note.return_note()[2].hour}:{note.return_note()[2].minute:02d}')
 
 def main():
 
