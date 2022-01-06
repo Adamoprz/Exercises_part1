@@ -1,5 +1,8 @@
 from datetime import datetime
+from datetime import timedelta
 #import time
+
+import dateutil.parser
 
 class Case:
     def __init__(self, case_: dict) -> None:
@@ -8,9 +11,8 @@ class Case:
         if self.case_['end_task'] is None:
             print("Task not finished yet")
         else:
-            element_created_task = datetime.strptime(self.case_['created_task'][:-3], ("%Y-%m-%dT%H:%M:%S+%f"))
-            element_end_task = datetime.strptime(self.case_['end_task'][:-3], ("%Y-%m-%dT%H:%M:%S+%f"))
-            print(element_end_task.timestamp()-element_created_task.timestamp())
+            delta_time = datetime.fromisoformat(self.case_['end_task']) - datetime.fromisoformat(self.case_['created_task'])
+            print(delta_time.total_seconds())
 
 def main():
     first_case = {
@@ -37,7 +39,6 @@ def main():
     #test 1 day = 24*60*60 = 86400
     case3 = Case(test_case)
     case3.retrieve_seconds()
-
 
 if __name__ == "__main__":
     main()
