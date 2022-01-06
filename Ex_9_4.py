@@ -17,7 +17,8 @@ class Deck:
         self.figures = figures
         self.values = values
         self.create_Deck()
-
+    def __str__(self):
+        return self.card_
     def create_Deck(self) -> None:
         for value in self.values:
             for figure in self.figures:
@@ -31,8 +32,6 @@ class Deck:
         random.shuffle(self.card_)
 
     def deal(self) -> str:
-        #temp = self.card_[-1]
-        #self.card_=self.card_[:-1]
         return self.card_.pop()
 
 def main():
@@ -42,11 +41,11 @@ def main():
     deck_f = Deck(figures, values)
     #deck_f.create_Deck()
     #print all cards of the deck
-    print(list(deck_f.card_))
+    print(*deck_f.card_,sep = ', ')
     #shuffle deck
     deck_f.shuffle()
     #print shuffled deck
-    print(deck_f.card_)
+    print(*deck_f.card_,sep = ", ")
     print(len(deck_f.card_))
 
     #print last card from the shuffled deck and remove the last card from deck.
