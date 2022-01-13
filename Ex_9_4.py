@@ -17,8 +17,10 @@ class Deck:
         self.figures = figures
         self.values = values
         self.create_Deck()
+
     def __str__(self):
         return self.card_
+
     def create_Deck(self) -> None:
         for value in self.values:
             for figure in self.figures:

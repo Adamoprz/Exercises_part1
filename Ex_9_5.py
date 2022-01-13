@@ -1,9 +1,10 @@
 class Manager:
     def __init__(self) -> None:
         self.orders = {}
-    def add_order(self, a:list, number_:int) -> None:
-        order_ = Order(a)
-        temp_order = order_.return_order()
+
+    def add_order(self, new_order, number_:int) -> None:
+
+        temp_order = new_order.return_order()
         if temp_order in self.orders.keys():
             self.orders[temp_order] = self.orders[temp_order] + number_
         else:
@@ -22,19 +23,21 @@ class Manager:
         print(self.orders)
 
 class Order:
-    def __init__(self, id_name_price:list) -> None:
-        self.id = id_name_price[0]
-        self.name = id_name_price[1]
-        self.price = id_name_price[2]
+    def __init__(self, **kwargs) -> None:
+        self.id = kwargs['id']#id_name_price[0]
+        self.name = kwargs['name']#id_name_price[1]
+        self.price = kwargs['price']#id_name_price[2]
+
     def return_order(self) -> list:
         return (self.id, self.name, self.price)
 
 def main():
     new_manager = Manager()
-    new_manager.add_order([1, "kasza", 125], 10)
-    new_manager.add_order([2, "kasza2", 125], 10)
-    new_manager.add_order([3, "kasza3", 125], 10)
-    new_manager.add_order([2, "kasza2", 125], 10)
+    order1 = Order(id=1, name='kasza', price=125)
+    new_manager.add_order(order1, 10)  # '[1, "kasza", 125], 10)
+    new_manager.add_order(id=2, name='kasza2', price=125)
+    new_manager.add_order(id=3, name='kasza3', price=125)
+    new_manager.add_order(id=2, name='kasza2', price=125)
 
     new_manager.show_manager()
     new_manager.sell([2, "kasza2", 125])

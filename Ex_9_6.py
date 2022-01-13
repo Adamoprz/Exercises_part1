@@ -12,14 +12,18 @@ class Note:
 class Notebook:
     def __init__(self) -> None:
         self.list_of_notes = []
+
     def add_note(self, author:str, text:str) -> None:
         new_note = Note(author, text)
         self.list_of_notes.append(new_note)
+
     def add_exist_note(self, n1) -> None:
         temp_note = n1
         self.list_of_notes.append(temp_note)
+
     def count_notes(self) -> None:
         print(len(self.list_of_notes))
+
     def show_notes(self) -> None:
         print("Masz takie notatki: ")
         count = 0
