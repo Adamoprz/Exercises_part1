@@ -17,6 +17,4 @@ class Square(Shape):
 
     def calc_area(self):
         return self.length ** 2
-
-
-s = Shape()
+a = Shape("name")
