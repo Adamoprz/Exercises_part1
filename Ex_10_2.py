@@ -5,3 +5,4 @@ class Pojazdy:
 class Pojazdy_miejske(Pojazdy):
     pass
 
+
