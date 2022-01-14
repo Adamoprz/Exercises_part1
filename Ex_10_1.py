@@ -7,6 +7,7 @@ class Shape(ABC):
         self.name = name
 
 
+
     @abstractmethod
     def calc_area(self):
         raise NotImplementedError
